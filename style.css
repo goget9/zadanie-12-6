@@ -1,0 +1,10 @@
+body ul {
+	list-style-type: none;
+	background-color: grey;
+}
+body ul li {
+	background-color: blue;
+}
+body ul li h1 {
+	font-weight: bold;
+}
