@@ -2,14 +2,6 @@ $(function() {
 	var url = 'https://restcountries.eu/rest/v2/name/';
 	var countriesList = $('#countries');
 	
-	function randomString() {
-		var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
-		var str = '';
-		for(var i=0; i<10; i++) {
-			str += chars[Math.floor(Math.random() * chars.length)];
-		}
-		return str;
-	};
 
 	$('#search').click(searchCountries);
 
@@ -26,17 +18,15 @@ $(function() {
 
 	function showCountriesList(resp) {
 		countriesList.empty();
+		console.log(resp)
+
 		resp.forEach(function(item) {
-			//Country Details
 			var name = item.name;
 			var flag = item.flag
 			var capital = item.capital;
-			var languages = item.languages[{name}];
-			var currency = item.currencies[{name}];
-//			console.log(name)
-//			console.log(capital)
+			var languages = item.languages[0].name;
+			var currency = item.currencies[0].name;
 
-			//Global Table elements
 			var $countryContainer = $('<li>').addClass('container');
 			var $countryRow1 = $('<div>').addClass('row r1');
 			var $countryRow2 = $('<div>').addClass('row r2');
@@ -80,25 +70,6 @@ $(function() {
 					)
 				);				
 
-//			$('<li>').id = item.name
-//			$('#' + item.name).addClass('container')
-//			$('img').addClass('flag')
-//			$('<div>').addClass('flag')
 		});
 	};
 })
-
-//$("#tableID").find('tbody')
-//    .append($('<tr>')
-//        .append($('<td>')
-//            .append($('<img>')
-//                .attr('src', 'img.png')
-//                .text('Image cell')
-//            )
-//        )
-//    );
-//
-//				.append($countryRow
-//					.append()
-//					.append()
-//				)    
